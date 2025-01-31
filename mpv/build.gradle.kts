@@ -1,3 +1,5 @@
+import org.gradle.internal.declarativedsl.parsing.main
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -22,6 +24,9 @@ android {
             )
         }
     }
+    sourceSets.getByName("main"){
+        jniLibs.srcDir("src/main/libs")
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -37,7 +42,7 @@ android {
             isEnable = true
             reset()
             arrayOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64").forEach { abi ->
-                if(File(projectDir, "src/main/jniLibs/$abi").exists()) include(abi)
+                if(File(projectDir, "src/main/libs/$abi").exists()) include(abi)
             }
             isUniversalApk = true
         }
