@@ -40,7 +40,7 @@ void init_methods_cache(JNIEnv *env)
     // static final android.graphics.Bitmap$Config ARGB_8888
     android_graphics_Bitmap_Config_ARGB_8888 = env->GetStaticFieldID(android_graphics_Bitmap_Config, "ARGB_8888", "Landroid/graphics/Bitmap$Config;");
 
-    mpv_MPV = FIND_CLASS("com/nyagami/mpv");
+    mpv_MPV = FIND_CLASS("com/nyagami/mpv/MPV");
     mpv_MPV_eventProperty_S  = env->GetStaticMethodID(mpv_MPV, "eventProperty", "(Ljava/lang/String;)V"); // eventProperty(String)
     mpv_MPV_eventProperty_Sb = env->GetStaticMethodID(mpv_MPV, "eventProperty", "(Ljava/lang/String;Z)V"); // eventProperty(String, boolean)
     mpv_MPV_eventProperty_Sl = env->GetStaticMethodID(mpv_MPV, "eventProperty", "(Ljava/lang/String;J)V"); // eventProperty(String, long)
