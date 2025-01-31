@@ -32,6 +32,16 @@ android {
     buildFeatures {
         compose = true
     }
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            arrayOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64").forEach { abi ->
+                if(File(projectDir, "src/main/jniLibs/$abi").exists()) include(abi)
+            }
+            isUniversalApk = true
+        }
+    }
 }
 
 dependencies {
