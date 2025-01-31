@@ -40,15 +40,15 @@ void init_methods_cache(JNIEnv *env)
     // static final android.graphics.Bitmap$Config ARGB_8888
     android_graphics_Bitmap_Config_ARGB_8888 = env->GetStaticFieldID(android_graphics_Bitmap_Config, "ARGB_8888", "Landroid/graphics/Bitmap$Config;");
 
-    mpv_MPVLib = FIND_CLASS("is/xyz/mpv/MPVLib");
-    mpv_MPVLib_eventProperty_S  = env->GetStaticMethodID(mpv_MPVLib, "eventProperty", "(Ljava/lang/String;)V"); // eventProperty(String)
-    mpv_MPVLib_eventProperty_Sb = env->GetStaticMethodID(mpv_MPVLib, "eventProperty", "(Ljava/lang/String;Z)V"); // eventProperty(String, boolean)
-    mpv_MPVLib_eventProperty_Sl = env->GetStaticMethodID(mpv_MPVLib, "eventProperty", "(Ljava/lang/String;J)V"); // eventProperty(String, long)
-    mpv_MPVLib_eventProperty_Sd = env->GetStaticMethodID(mpv_MPVLib, "eventProperty", "(Ljava/lang/String;D)V"); // eventProperty(String, double)
-    mpv_MPVLib_eventProperty_SS = env->GetStaticMethodID(mpv_MPVLib, "eventProperty", "(Ljava/lang/String;Ljava/lang/String;)V"); // eventProperty(String, String)
-    mpv_MPVLib_event = env->GetStaticMethodID(mpv_MPVLib, "event", "(I)V"); // event(int)
-    mpv_MPVLib_efEvent = env->GetStaticMethodID(mpv_MPVLib, "efEvent", "(Ljava/lang/String;)V"); // efEvent(String)
-    mpv_MPVLib_logMessage_SiS = env->GetStaticMethodID(mpv_MPVLib, "logMessage", "(Ljava/lang/String;ILjava/lang/String;)V"); // logMessage(String, int, String)
+    mpv_MPV = FIND_CLASS("com/nyagami/mpv");
+    mpv_MPV_eventProperty_S  = env->GetStaticMethodID(mpv_MPV, "eventProperty", "(Ljava/lang/String;)V"); // eventProperty(String)
+    mpv_MPV_eventProperty_Sb = env->GetStaticMethodID(mpv_MPV, "eventProperty", "(Ljava/lang/String;Z)V"); // eventProperty(String, boolean)
+    mpv_MPV_eventProperty_Sl = env->GetStaticMethodID(mpv_MPV, "eventProperty", "(Ljava/lang/String;J)V"); // eventProperty(String, long)
+    mpv_MPV_eventProperty_Sd = env->GetStaticMethodID(mpv_MPV, "eventProperty", "(Ljava/lang/String;D)V"); // eventProperty(String, double)
+    mpv_MPV_eventProperty_SS = env->GetStaticMethodID(mpv_MPV, "eventProperty", "(Ljava/lang/String;Ljava/lang/String;)V"); // eventProperty(String, String)
+    mpv_MPV_event = env->GetStaticMethodID(mpv_MPV, "event", "(I)V"); // event(int)
+    mpv_MPV_efEvent = env->GetStaticMethodID(mpv_MPV, "efEvent", "(Ljava/lang/String;)V"); // efEvent(String)
+    mpv_MPV_logMessage_SiS = env->GetStaticMethodID(mpv_MPV, "logMessage", "(Ljava/lang/String;ILjava/lang/String;)V"); // logMessage(String, int, String)
     #undef FIND_CLASS
 
     methods_initialized = true;
