@@ -9,9 +9,9 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
-MPV/build
-MPV/src/main/obj
-MPV/src/main/libs
+mpv/build
+mpv/src/main/obj
+mpv/src/main/libs
 /captures
 .externalNativeBuild
 .cxx
