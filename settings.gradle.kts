@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MPV Compose"
 include(":app")
-include(":MPV")
+include(":mpv")
