@@ -3,7 +3,7 @@ jdk:
 env:
   RELEASE_VERSION: "1.0"
 before_install:
-  - mkdir -p app/build/outputs/aar
-  - wget -O app/build/outputs/aar/mpv-compose-release.aar https://github.com/nyagami/mpv-compose/releases/download/$RELEASE_VERSION/mpv-compose-$RELEASE_VERSION.aar
+  - mkdir -p mpv/build/outputs/aar
+  - wget -O mpv/build/outputs/aar/mpv-release.aar https://github.com/nyagami/mpv-compose/releases/download/$RELEASE_VERSION/mpv-compose-$RELEASE_VERSION.aar
 install:
-  - ./gradlew app:publishBarPublicationToMavenLocal
+  - ./gradlew mpv:publishReleasePublicationToMavenLocal

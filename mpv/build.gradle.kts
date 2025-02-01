@@ -64,7 +64,7 @@ publishing{
     publications {
         create<MavenPublication>("release"){
             groupId = "com.github.nyagami"
-            artifact("${layout.buildDirectory}/outputs/aar/mpv-compose-release.aar")
+            artifact("${layout.buildDirectory.asFile.get()}/outputs/aar/mpv-release.aar")
             artifact(tasks["sourceJar"])
             version = "1.0"
         }
