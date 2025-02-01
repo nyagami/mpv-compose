@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.maven.publish)
 }
 
 android {
@@ -52,4 +53,18 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.material3)
+}
+
+afterEvaluate{
+    publishing{
+        publications {
+            create<MavenPublication>("release"){
+                from(components["release"])
+
+                groupId = "com.github.nyagami"
+                artifactId = "mpv"
+                version = "1.0"
+            }
+        }
+    }
 }
