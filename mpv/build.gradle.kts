@@ -55,16 +55,18 @@ dependencies {
     implementation(libs.androidx.material3)
 }
 
-afterEvaluate{
-    publishing{
-        publications {
-            create<MavenPublication>("release"){
-                from(components["release"])
+tasks.register<Jar>("sourceJar") {
+    archiveClassifier.set("sources")
+    from(android.sourceSets.getByName("main").java.srcDirs)
+}
 
-                groupId = "com.github.nyagami"
-                artifactId = "mpv"
-                version = "1.0"
-            }
+publishing{
+    publications {
+        create<MavenPublication>("release"){
+            groupId = "com.github.nyagami"
+            artifact("${layout.buildDirectory}/outputs/aar/mpv-compose-release.aar")
+            artifact(tasks["sourceJar"])
+            version = "1.0"
         }
     }
 }
