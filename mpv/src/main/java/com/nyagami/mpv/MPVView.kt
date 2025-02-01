@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 
 @Composable
-fun MPVView(modifier: Modifier = Modifier, voInUse: String = "gpu") {
+fun MPVView(modifier: Modifier = Modifier) {
     AndroidView(
         factory = { ctx ->
             SurfaceView(ctx).apply {
@@ -17,7 +17,7 @@ fun MPVView(modifier: Modifier = Modifier, voInUse: String = "gpu") {
                     override fun surfaceCreated(holder: SurfaceHolder) {
                         MPV.attachSurface(holder.surface)
                         MPV.setOptionString("force-window", "yes")
-                        MPV.setPropertyString("vo", voInUse)
+                        MPV.setPropertyString("vo", MPV.voInUse)
                     }
 
                     override fun surfaceChanged(
